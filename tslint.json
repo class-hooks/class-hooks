@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "tslint:recommended"
+  ],
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ],
+  "rules": {
+    "object-curly-spacing": true,
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "ordered-imports": false,
+    "max-line-length": false,
+    "arrow-parens": false,
+    "trailing-comma": false,
+    "no-shadowed-variable": false,
+    "object-literal-sort-keys": false,
+    "member-access": false,
+    "max-classes-per-file": false,
+    "interface-name": false,
+    "no-string-literal": false,
+    "member-ordering": false
+  }
+}
