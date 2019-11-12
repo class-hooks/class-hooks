@@ -3,14 +3,17 @@
     "target": "es5",
     "module": "commonjs",
     "lib": [
-      "es2015"
+      "es2015",
+      "dom"
     ],
     "sourceMap": true,
+    "declaration": true,
     "outDir": "./dist",
     "rootDir": "./",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "jsx": "react"
   },
   "include": [
     "src"
