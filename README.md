@@ -8,6 +8,19 @@
 
 </center>
 
+- class-hooks
+  * [General](#general)
+  * [Getting Started](#getting-started)
+    + [Requirements](#requirements)
+    + [Install](#install)
+    + [Our First Class Hook](#our-first-class-hook)
+  * [API](#api)
+    + [The Hooks](#the-hooks)
+      - [useLifecycle](#uselifecycle)
+      - [useState](#usestate)
+      - [useContext](#usecontext)
+    + [The Rules of Class Hooks](#the-rules-of-class-hooks)
+
 ## General
 class-hooks is a project that is meant to bring hooks into the world of class components. With class-hooks, you can write reusable pieces of logic that utilize lifecycle methods, state and context, and utilize them in your class components, much like mixins (but without inheriting multiple base-classes) or higher order components (but without changing your react tree with countless wrappers).
 
@@ -41,7 +54,11 @@ Install `class-hooks` by running:
 npm install class-hooks
 ```
 
-And you're good to go.
+or if you prefer yarn:
+
+```bash
+yarn add class-hooks
+```
 
 ### Our First Class Hook
 Let's write a `useStopwatch` class hook. This hook simply counts the seconds from the moment that the component was mounted, and can be queried for the time that have passed.
