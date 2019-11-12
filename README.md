@@ -1,4 +1,4 @@
-<center>
+<div style="text-align: center">
 
 <img src="./logo.svg" />
 
@@ -6,7 +6,7 @@
 
 > React hooks for class components
 
-</center>
+</div>
 
 - class-hooks
   * [General](#general)
