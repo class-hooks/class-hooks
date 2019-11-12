@@ -1,12 +1,7 @@
-<div style="text-align: center">
-
 <img src="./logo.svg" />
 
 # class-hooks
-
 > React hooks for class components
-
-</div>
 
 - class-hooks
   * [General](#general)
