@@ -1,15 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ComponentWithLifecycleHook } from './components/lifcycle';
-import { ComponentWithStateHook } from './components/state';
+import { useStopwatch } from './hook';
+import { RaceNameContext } from './context';
 
-export class App extends React.Component {
+class TimerLabel extends React.Component {
+  stopWatch = useStopwatch(this);
+
   render() {
     return (
-      <>
-        <ComponentWithLifecycleHook />
-        <ComponentWithStateHook />
-      </>
+      <span>
+        <span data-testid='title'>{this.stopWatch.getTitle()}</span><br />
+        <span data-testid='time'>{this.stopWatch.getTime()}</span> <span>seconds</span>
+      </span>
+    );
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <RaceNameContext.Provider value='Test App Race'>
+        <TimerLabel />
+      </RaceNameContext.Provider>
     );
   }
 }

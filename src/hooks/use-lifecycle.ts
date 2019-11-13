@@ -6,9 +6,22 @@ export type LifecycleMethod<TLifecycleMethodName extends LifecycleMethodName> =
   ComponentLifecycle<any, any>[TLifecycleMethodName];
 
 export const useLifecycle = <TLifecycleMethodName extends LifecycleMethodName>(target: ClassHookTarget, lifecycleMethodName: TLifecycleMethodName, fn: LifecycleMethod<TLifecycleMethodName>): void => {
-  const originalFn = target[lifecycleMethodName];
-  (target as any)[lifecycleMethodName] = function(...args: any[]) {
-    (fn as any)(...args);
-    originalFn && (originalFn as any)(...args);
+  let wrappedFn = target[lifecycleMethodName];
+
+  const wrappedFunction = function(...args: any[]) {
+    fn.apply(this, args);
+
+    if (wrappedFn) {
+      wrappedFn.apply(this, args);
+    }
   };
+
+  Object.defineProperty(target, lifecycleMethodName, {
+    get() {
+      return wrappedFunction;
+    },
+    set(fn) {
+      wrappedFn = fn;
+    }
+  });
 };

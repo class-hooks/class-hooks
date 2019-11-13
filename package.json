@@ -1,6 +1,6 @@
 {
   "name": "class-hooks",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "react hooks for class components",
   "keywords": [
     "react",
@@ -45,7 +45,8 @@
     "ts-jest": "^24.1.0",
     "tslint": "^5.20.1",
     "tslint-eslint-rules": "^5.4.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "wix-eventually": "^2.2.0"
   },
   "peerDependencies": {
     "react": "^16.3.0"

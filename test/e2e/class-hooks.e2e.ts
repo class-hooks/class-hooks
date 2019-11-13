@@ -1,3 +1,4 @@
+import eventually from 'wix-eventually';
 import { TestAppDriver } from '../drivers/test-app';
 
 describe('Class Hooks E2E tests', () => {
@@ -12,19 +13,15 @@ describe('Class Hooks E2E tests', () => {
     testAppDriver.stop());
 
   describe('when used in a react.js web application', () => {
-    describe('when using useLifecycle(target, "componentDidMount")', () => {
+    describe('all hooks', () => {
       it('should work as expected by wrapping componentDidMount with extra logic', async () => {
         await testAppDriver.when.navigatingToTestApp();
-        expect(await testAppDriver.get.componentDidMountWasExecutedOnMount()).toBe(true);
-        expect(await testAppDriver.get.useLifecycleHookWasExecutedOnMount()).toBe(true);
-      });
-    });
 
-    describe('when using useState(target, 0)', () => {
-      it('should work as expected by providing a numerical state', async () => {
-        await testAppDriver.when.navigatingToTestApp();
-        await testAppDriver.when.clickingOnCounterButton();
-        expect(await testAppDriver.get.counterValue()).toBe(1);
+        expect(await testAppDriver.get.titleThatWasPassedFromContext()).toBe('Test App Race');
+
+        await eventually(async () => {
+          expect(await testAppDriver.get.timeThatIsDisplayed()).toEqual(3);
+        });
       });
     });
   });

@@ -29,20 +29,15 @@ export class TestAppDriver {
   when = {
     navigatingToTestApp: async () => {
       await this.page.goto(`http://localhost:${this.port}`);
-    },
-    clickingOnCounterButton: async () => {
-      await this.page.click('[data-hook="counter-button"]');
     }
   };
 
   get = {
-    componentDidMountWasExecutedOnMount: () =>
-      this.page.evaluate(() => window['componentDidMountWasExecuted'] === true),
-    useLifecycleHookWasExecutedOnMount: () =>
-      this.page.evaluate(() => window['useLifecycleWasExecuted'] === true),
-    counterValue: () =>
+    titleThatWasPassedFromContext: () =>
+      this.page.$eval('[data-testid="title"]', e => e['innerText']),
+    timeValue: () =>
       this.page
-        .$eval('[data-hook="counter-label"]', e => e['innerText'])
+        .$eval('[data-testid="time"]', e => e['innerText'])
         .then(parseInt)
   };
 }
