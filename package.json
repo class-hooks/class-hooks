@@ -25,7 +25,7 @@
     "pretest": "npm run build",
     "test:unit": "jest",
     "test:e2e": "jest --testRegex '.+\\.e2e\\.(ts|tsx)' --forceExit",
-    "preRelease": "npm run clean && npm run build && npm test && npm run release",
+    "prerelease": "npm run clean && npm run build && npm test && npm run release",
     "release": "release-it",
     "posttest": "npm run lint",
     "lint": "tslint --project tsconfig.json",
