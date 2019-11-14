@@ -22,6 +22,8 @@
 ## General
 class-hooks is a project that is meant to bring hooks into the world of class components. With class-hooks, you can write reusable pieces of logic that utilize lifecycle methods, state and context as complete black boxes, and utilize them in your class components.
 
+[See class-hooks in action](https://codesandbox.io/s/class-hooks-example-ysg08?fontsize=14&hidenavigation=1&theme=dark)
+
 ### Features
 - 🎓 **Easy to use** - two lines and you're there!
 - 👓 **Transparent** - does not change how your class component works!
@@ -109,6 +111,8 @@ class StopwatchComponent extends React.Component {
   }
 }
 ```
+
+You can see this code in action on [code sandbox](https://codesandbox.io/s/class-hooks-example-ysg08?fontsize=14&hidenavigation=1&theme=dark).
 
 ## API
 ### The Hooks
