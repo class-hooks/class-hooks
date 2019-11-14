@@ -23,7 +23,7 @@
     "start": "node .",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "jest",
-    "test:e2e": "jest --testRegex '.+\\.e2e\\.(ts|tsx)'",
+    "test:e2e": "jest --testRegex '.+\\.e2e\\.(ts|tsx)' --forceExit",
     "posttest": "npm run lint",
     "lint": "tslint --project tsconfig.json",
     "clean": "rm -rf dist",
