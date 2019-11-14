@@ -1,4 +1,4 @@
-<img src="./logo.svg" />
+<img src="https://github.com/illBeRoy/class-hooks/raw/master/logo.svg?sanitize=true" />
 
 # class-hooks
 > React hooks for class components
