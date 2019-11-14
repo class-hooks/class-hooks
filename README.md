@@ -164,7 +164,7 @@ const useMyCustomClassHook = (target, ...) => {
 ```
 
 #### 2. Class Hooks are only called once
-With React Hooks, the hook function is being called for every render. That is not the case for class hooks, as they are created once when the component is constructed. This means that you can count of the fact that the variable you declare inside your custom hook stick around with you until the hosting component is unmounted.
+With React Hooks, the hook function is being called for every render. That is not the case for class hooks, as they are created once when the component is constructed. As a result, you can rely on the fact that the variables you declare inside your custom hooks stick around with you until the hosting component is unmounted.
 
 #### 3. Always use with class fields
 Class hooks are initialized right after `super()` was called, and right before the constructor was executed (if one exists). Using them anywhere else might make them not work properly, and introduce bugs to your code:
