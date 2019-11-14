@@ -1,4 +1,4 @@
-import { useContext, useState, useLifecycle } from '../../../src';
+import { useContext, useState, useLifecycle } from '../../..';
 import { RaceNameContext } from './context';
 
 export const useStopwatch = (target) => {
