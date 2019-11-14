@@ -3,6 +3,10 @@
 # class-hooks
 > React hooks for class components
 
+[![Travis](https://img.shields.io/travis/illBeRoy/class-hooks.svg?style=flat-square)](https://travis-ci.org/illBeRoy/concurrentp/)
+[![npm](https://img.shields.io/npm/v/class-hooks.svg?style=flat-square)
+](https://www.npmjs.com/package/concurrentp)
+
 - [General](#general)
 - [Getting Started](#getting-started)
   * [Requirements](#requirements)

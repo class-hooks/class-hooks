@@ -15,7 +15,7 @@ export class TestAppDriver {
 
   async start() {
     const testAppFile = path.join(__dirname, '..', 'fixtures', 'test-app', 'index.html');
-    this.parcelProcess = exec(`npx parcel -p ${this.port} ${testAppFile}`);
+    this.parcelProcess = exec(`npx parcel -p ${this.port} --out-dir .fixtures_dist ${testAppFile}`);
     await waitUrl(`http://localhost:${this.port}`);
     this.browser = await puppeteer.launch({ headless: false });
     this.page = await this.browser.newPage();
@@ -35,7 +35,7 @@ export class TestAppDriver {
   get = {
     titleThatWasPassedFromContext: () =>
       this.page.$eval('[data-testid="title"]', e => e['innerText']),
-    timeValue: () =>
+    timeThatIsDisplayed: () =>
       this.page
         .$eval('[data-testid="time"]', e => e['innerText'])
         .then(parseInt)

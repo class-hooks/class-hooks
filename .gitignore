@@ -201,3 +201,4 @@ build
 .cache
 .vscode
 .idea
+.fixtures_dist
