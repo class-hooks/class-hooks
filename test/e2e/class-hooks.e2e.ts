@@ -14,7 +14,7 @@ describe('Class Hooks E2E tests', () => {
 
   describe('when used in a react.js web application', () => {
     describe('all hooks', () => {
-      it('should work as expected by wrapping componentDidMount with extra logic', async () => {
+      it('should work as expected by initializing a timer on component mount, keeping time in state, and passing title via context', async () => {
         await testAppDriver.when.navigatingToTestApp();
 
         expect(await testAppDriver.get.titleThatWasPassedFromContext()).toBe('Test App Race');
