@@ -15,17 +15,21 @@
     "README.md",
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/illberoy/class-hooks.git"
+  },
   "scripts": {
     "start": "node .",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "jest",
     "test:e2e": "jest --testRegex '.+\\.e2e\\.(ts|tsx)'",
+    "posttest": "npm run lint",
+    "lint": "tslint --project tsconfig.json",
+    "clean": "rm -rf dist",
     "build": "npm run build:typescript",
     "build:typescript": "tsc",
-    "watch": "npm run watch:typescript",
-    "watch:typescript": "tsc -w",
-    "lint": "tslint --project tsconfig.json",
-    "posttest": "npm run lint"
+    "prepublishOnly": "npm run clean && npm run build && npm test"
   },
   "devDependencies": {
     "@testing-library/react": "^9.3.2",
