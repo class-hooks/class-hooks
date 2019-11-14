@@ -104,7 +104,7 @@ class StopwatchComponent extends React.Component {
   // component having to set up anything!
   render() {
     return (
-      <span>It has been {stopwatch.getTime()} seconds</span>
+      <span>It has been {this.stopwatch.getTime()} seconds</span>
     );
   }
 }
