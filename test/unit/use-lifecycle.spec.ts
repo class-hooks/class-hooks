@@ -64,4 +64,41 @@ describe('useLifecycle', () => {
       expect(hookComponentDidMount).toHaveBeenCalled();
     });
   });
+
+  describe('test aggregating result of shouldComponentUpdate', () => {
+    it('should return true if the hook\'s shouldComponentUpdate returns true and no implementation for', () => {
+      class SomeComponent extends React.Component {
+        lifecycle = useLifecycle(this, 'shouldComponentUpdate', () => true);
+      }
+
+      const component = new SomeComponent({});
+      expect(component.shouldComponentUpdate({}, {}, {})).toBe(true);
+    });
+
+    it('should return true if the hook\'s shouldComponentUpdate returns true and the component shouldComponentUpdate returns anything else', () => {
+      class SomeComponent extends React.Component {
+        lifecycle = useLifecycle(this, 'shouldComponentUpdate', () => true);
+
+        shouldComponentUpdate() {
+          return false;
+        }
+      }
+
+      const component = new SomeComponent({});
+      expect(component.shouldComponentUpdate()).toBe(true);
+    });
+
+    it('should return the exact return value of the component\'s shouldComponentUpdate function, if the hook returned false', () => {
+      class SomeComponent extends React.Component {
+        lifecycle = useLifecycle(this, 'shouldComponentUpdate', () => false);
+
+        shouldComponentUpdate() {
+          return null;
+        }
+      }
+
+      const component = new SomeComponent({});
+      expect(component.shouldComponentUpdate()).toBe(null);
+    });
+  });
 });

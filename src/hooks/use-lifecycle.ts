@@ -8,12 +8,25 @@ export type LifecycleMethod<TLifecycleMethodName extends LifecycleMethodName> =
 export const useLifecycle = <TLifecycleMethodName extends LifecycleMethodName>(target: ClassHookTarget, lifecycleMethodName: TLifecycleMethodName, fn: LifecycleMethod<TLifecycleMethodName>): void => {
   let wrappedFn = target[lifecycleMethodName];
 
-  const wrappedFunction = function(...args: any[]) {
-    fn.apply(this, args);
+  const calculateReturnValue = (originalReturnValue, hookReturnValue) => {
+    switch (lifecycleMethodName) {
+      case 'shouldComponentUpdate':
+        if (hookReturnValue === true) {
+          return hookReturnValue;
+        } else {
+          return originalReturnValue;
+        }
 
-    if (wrappedFn) {
-      wrappedFn.apply(this, args);
+      default:
+        return originalReturnValue;
     }
+  };
+
+  const wrappedFunction = function(...args: any[]) {
+    const hookReturnValue = fn.apply(this, args);
+    const originalReturnValue = wrappedFn ? wrappedFn.apply(this, args) : undefined;
+
+    return calculateReturnValue(originalReturnValue, hookReturnValue);
   };
 
   Object.defineProperty(target, lifecycleMethodName, {

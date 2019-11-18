@@ -128,6 +128,8 @@ Returns:
 Respective React hooks counterpart:
 - `useEffect`
 
+> About `shouldComponentUpdate`: the hook implementation for that specific lifecycle hook is to be the least intrusive: if `useLifecycle(target, 'shouldComponentUpdate', ...)` return true, then true is returned to the React renderer. But, if it returned false, then the returned value ignores it completely, and only the wrapped component's `shouldComponentUpdate` is taken into account.
+
 #### useState
 Keeps an encapsulated piece of state. This state is part of the component's lifecycle, so the component **will** react to state changes. Does not collide with values that are saved on the component's state. Useful for saving state that is internal to the custom hook that you're implementing.
 
@@ -153,7 +155,7 @@ Returns:
 Respective React hooks counterpart:
 - `useContext`
 
-> ℹ️ context is only accessible after the component is mounted. Therefore, you cannot use `getContext` from the body of a custom hook.
+> context is only accessible after the component is mounted. Therefore, you cannot use `getContext` from the body of a custom hook.
 
 ### The Rules of Class Hooks
 In order to get the best out of class hooks, there are several rules that we need to follow:
