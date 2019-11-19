@@ -1,7 +1,7 @@
 <img src="https://github.com/illBeRoy/class-hooks/raw/master/logo.svg?sanitize=true" />
 
 # class-hooks
-> React hooks for class components
+> Componentize Your Logic
 
 [![Travis](https://img.shields.io/travis/illBeRoy/class-hooks.svg?style=flat-square)](https://travis-ci.org/illBeRoy/class-hooks/)
 [![npm](https://img.shields.io/npm/v/class-hooks.svg?style=flat-square)
@@ -20,7 +20,7 @@
   * [The Rules of Class Hooks](#the-rules-of-class-hooks)
 
 ## General
-class-hooks is a project that is meant to bring hooks into the world of class components. With class-hooks, you can write reusable pieces of logic that utilize lifecycle methods, state and context as complete black boxes, and utilize them in your class components.
+class-hooks are a new way to manage your logic, with one major goal: to help you treat your app model as a set of components that are encapsulated and can be composed upon. It does so by bringing the favorable concept of react hooks into the world of class components, thus giving your hooks lifecycle, state and context - a component that doesn't care about UI, and instead of rendering anything, provides an API for its hosting class component to interact with.
 
 [See class-hooks in action](https://codesandbox.io/s/class-hooks-example-ysg08?fontsize=14&hidenavigation=1&theme=dark)
 
@@ -31,9 +31,13 @@ class-hooks is a project that is meant to bring hooks into the world of class co
 - ⌨️ **Fully Typed** - full typescript support and finely tuned type hints!
 
 ### Why Class Hooks
-Separating logic from presentation is an intuitive part of many React applications. The practices to do so today are mostly Higher Order Components and Render Props\Functions. The first imposes a Container\Presentational (smart \ dumb) components, and essentially affects your React tree. The other affects your render method at the very least. In both cases, **you shape your components around how you inject the data it's built upon**.
+> **Class Hooks are components that render API**
 
-React Hooks brought a breath of fresh air in that regard: now, you can write **logic components**, compose them and write abstractions over them, and seamlessly hook them into your component without having to change how it is written. Class Hooks brings this into the class components world - now, you can write logical components, and once you hook them into your component, they just work.
+Separating logic from presentation is an intuitive part of many React applications. The practices to do so today are mostly Higher Order Components, Container \ Presentational component pairs, and Render Props\Functions. In all of the above cases, **you write components that render no UI, shape others around how their data is injected to them, and bloat your React tree.**.
+
+Class Hooks intends to take the idea of logic \ UI separation one step further. Make your components care only about UI, and not even about **how** they receive the data. No more connects and no more props with the sole purpose of dependency injection. You "decorate" your class component by assigning a hook into a class field, and then you directly use that hook's api from anywhere in your component's code.
+
+Class Hooks leverages on the mechanisms that were first born with React hooks: write hooks, write hooks on top of those hooks, compose them and write abstractions over them, and seamlessly connect them into your component without having to change how it is written. Once it's there, it simply works.
 
 ## Getting Started
 ### Requirements
