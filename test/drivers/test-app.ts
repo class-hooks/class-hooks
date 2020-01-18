@@ -17,7 +17,7 @@ export class TestAppDriver {
     const testAppFile = path.join(__dirname, '..', 'fixtures', 'test-app', 'index.html');
     this.parcelProcess = exec(`npx parcel -p ${this.port} --out-dir .fixtures_dist ${testAppFile}`);
     await waitUrl(`http://localhost:${this.port}`);
-    this.browser = await puppeteer.launch();
+    this.browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     this.page = await this.browser.newPage();
   }
 
