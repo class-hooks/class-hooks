@@ -3,7 +3,7 @@
 # class-hooks
 > Componentize Your Logic
 
-[![Travis](https://img.shields.io/travis/illBeRoy/class-hooks.svg?style=flat-square)](https://travis-ci.org/illBeRoy/class-hooks/)
+[![Travis](https://img.shields.io/travis/class-hooks/class-hooks.svg?style=flat-square)](https://travis-ci.org/class-hooks/class-hooks/)
 [![npm](https://img.shields.io/npm/v/class-hooks.svg?style=flat-square)
 ](https://www.npmjs.com/package/class-hooks)
 
